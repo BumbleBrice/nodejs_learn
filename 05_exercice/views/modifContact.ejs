@@ -1,0 +1,38 @@
+<%- include('header') -%>
+<main>
+    <h2>Modification d'un contact</h2>
+    <form action='/modif/<%= id %>' method="post">
+        <p>
+            <label for="civilite">Civilité</label>
+            <select name='civilite' id="civilite">
+                <option value="Mme" <% if(contact[0]=="Mme"){ %> selected <% } %>>Mme</option>
+                <option value="Mr"<% if(contact[0]=="Mr"){ %> selected <% } %>>Mr</option>
+            </select>
+        </p>
+        <p>
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom" value="<%= contact[1] %>">     
+        </p>
+        <p>
+            <label for="prenom">Prénom</label>
+            <input type="text" name="prenom" id="prenom" value="<%= contact[2] %>">   
+        </p>
+        <p>
+            <label for="tel">Téléphone</label>
+            <input type="text" name="tel" id="tel" value="<%= contact[3] %>">   
+        </p>
+        <p>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" value="<%= contact[4] %>">   
+        </p>
+        <p>
+            <label for="birthdate">Date de naisance</label>
+            <input type="date" name="birthdate" id="birthdate" value="<%= contact[5] %>">   
+        </p>
+        <p>
+            <button type="submit">Modifier</button>
+            <button type="reset">Annuler</button>
+        </p>
+    </form>
+</main>
+<%- include('footer') -%>

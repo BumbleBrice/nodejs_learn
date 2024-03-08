@@ -1,0 +1,12 @@
+<%- include('header') -%>
+<main>
+    <h2><%= contact[0] %> <%= contact[2] %> <%= contact[1] %></h2>
+    <p><strong>Numéro de téléphone: </strong><%= contact[3] %></p>
+    <p><strong>Adresse Email </strong><%= contact[4] %></p>
+    <p><strong>Né le </strong><%= contact[5] %></p>
+    <% if (isBirthday) { %>
+      <p>Joyeux anniversaire ! 🎉</p>
+    <% } %>
+    <a href="/modifContact/<%= id %>">Modifier le contact</a>
+</main>
+<%- include('footer') -%>

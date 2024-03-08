@@ -1,0 +1,38 @@
+<%- include('header') -%>
+<main>
+    <h2>Ajout d'un contact</h2>
+    <form action='/ajout' method="post">
+        <p>
+            <label for="civilite">Civilité</label>
+            <select name='civilite' id="civilite">
+                <option value="Mme">M</option>
+                <option value="Mr">Mr</option>
+            </select>
+        </p>
+        <p>
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom">     
+        </p>
+        <p>
+            <label for="prenom">Prénom</label>
+            <input type="text" name="prenom" id="prenom">   
+        </p>
+        <p>
+            <label for="tel">Téléphone</label>
+            <input type="text" name="tel" id="tel">   
+        </p>
+        <p>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">   
+        </p>
+        <p>
+            <label for="birthdate">Date de naissance</label>
+            <input type="date" name="birthdate" id="birthdate">   
+        </p>
+        <p>
+            <button type="submit">Enregistrer</button>
+            <button type="reset">Annuler</button>
+        </p>
+    </form>
+</main>
+<%- include('footer') -%>
