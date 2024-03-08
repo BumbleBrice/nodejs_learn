@@ -1,0 +1,11 @@
+<%- include('header') -%>
+<div class="container">
+			<% for(const kitten of kittens) {%>
+				<div class="kitten">
+					<a href="/kitten/<%= kitten.id %>"><%= kitten.name %></a>
+					<img src="/images/<%= kitten.image %>" >
+				</div>
+			<% } %>
+    </div>
+  </body>
+</html>
