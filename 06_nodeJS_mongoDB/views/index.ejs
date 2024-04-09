@@ -1,0 +1,93 @@
+<% messages.forEach(element => { %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= element %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% }) %>
+
+<a href="add">Nouvel utilisateur</a>
+
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col" class="text-end">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% customers.forEach(element => { %>
+          <tr>
+            <td><%= element.firstName %></td>
+            <td><%= element.lastName %></td>
+            <td><%= element.email %></td>
+            <td>
+                <a href="/view/<%= element._id %>" type="button">
+                    <i class="bi bi-eye"></i>
+                </a>
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= element._id %>">Delete</button>
+                <div class="modal fade" id="deleteModal<%= element._id %>" tabindex="-1" aria-labelledby="deleteModalLabel<%= element._id %>" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel<%= element._id %>">Delete User</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to delete <%= element.name %>?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <form action="/delete/<%= element._id %>" method="POST">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+    </table>
+</div>
+
+
+
+<% if (customers.length > 0) { %>
+  <nav aria-label="Dashboard Pagination">
+    <ul class="pagination justify-content-center mt-5">
+
+      <% if (current == 1) { %>
+        <li class="page-item disabled"><a href="#" class="page-link">First</a></li>
+      <% } else { %>
+        <li class="page-item"><a href="/?page=1" class="page-link">First</a></li>
+      <% } %>
+
+      <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+      <% if(i !== 1) { %>
+        <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
+      <% } %>
+
+      <% for(; i <= (Number(current) + 4) && i <= pages; i++ ) { %>
+        <% if (i == current) { %>
+          <li class="page-item disabled"><a href="#" class="page-link"><%= i %></a></li>
+        <% } else { %>
+          <li class="page-item"><a href="/?page=<%= i %>" class="page-link"><%= i %></a></li>
+        <% } %>
+        <% if (i == Number(current) + 4 && i < pages) { %>
+          <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
+        <% } %>
+      <% } %>
+
+      <% if (current == pages) { %>
+        <li class="page-item disabled"><a href="#" class="page-link">Last</a></li>
+      <% } else { %>
+        <li class="page-item"><a href="/?page=<%= pages %>" class="page-link">Last</a></li>
+      <% } %>
+
+    </ul>
+  </nav>
+<% } %>
