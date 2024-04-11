@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+</head>
+<body>
+    <h1>Task List</h1>
+    <ul>
+        <% tasks.forEach(task => { %>
+            <li>id: <%= task.id %> - <%= task.title %> - <%= task.completed ? 'Completed' : 'Not completed' %>
+                <a href="<%= task.id %>/edit">Edit</a>
+                <a href="/delete/<%= task.id %>">Supprimer</a>
+            </li>
+        <% }); %>
+    </ul>
+    <a href="add">Ajouter une tâche</a>
+</body>
+</html>
