@@ -1,0 +1,30 @@
+<h1>Admin</h1>
+
+<a class="back" href="/add_post">Ajouter un article</a>
+
+<table>
+	<thead>
+			<th>Image</th>
+			<th>Titre</th>
+            <th>Article</th>
+            <th>Catégorie</th>
+            <th></th>
+	</thead>
+	<tbody>
+		<% for(let i = 0; i < posts.length; i++) { %>
+			<tr>
+				<td><img src="<%=posts[i].path%>" alt="<%=posts[i].alt%>"></td>
+				<td>
+					<a class="back" href="/article/<%=posts[i].id%>"><%=posts[i].title%></a>
+				</td>
+				<td><%=posts[i].description.substring(0, 30)%> ...</td>
+				
+				<td><%=posts[i].Category_Name%></td>
+				<td>
+                    <a class="edit" href="edit_post/<%=posts[i].id%>"><i class="fa fa-pencil"></i></a>
+                    <a class="remove" href="delete_post/<%=posts[i].id%>"><i class="fa fa-remove"></i></a>
+                </td>
+			</tr>
+		<% } %>
+	</tbody>
+</table>
