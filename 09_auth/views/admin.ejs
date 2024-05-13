@@ -6,9 +6,9 @@
 	<thead>
 			<th>Image</th>
 			<th>Titre</th>
-      <th>Article</th>
-      <th>Catégorie</th>
-      <th></th>
+            <th>Article</th>
+            <th>Catégorie</th>
+            <th></th>
 	</thead>
 	<tbody>
 		<% for(let i = 0; i < posts.length; i++) { %>
@@ -21,9 +21,9 @@
 				
 				<td><%=posts[i].Category_Name%></td>
 				<td>
-                    <a class="edit" href="edit_post/<%=posts[i].id%>"><i class="fa fa-pencil"></i></a>
-                    <a class="remove" href="delete_post/<%=posts[i].id%>"><i class="fa fa-remove"></i></a>
-                </td>
+            <a class="edit" href="edit_post/<%=posts[i].id%>"><i class="fa fa-pencil"></i></a>
+            <a class="remove" href="delete_post/<%=posts[i].id%>"><i class="fa fa-remove"></i></a>
+        </td>
 			</tr>
 		<% } %>
 	</tbody>

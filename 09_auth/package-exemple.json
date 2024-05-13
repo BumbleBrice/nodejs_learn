@@ -1,0 +1,30 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Le super blog de la 3wa",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cécile Vilport",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "formidable": "^2.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.19",
+    "cors": "^2.8.5",
+    "helmet": "^5.1.0",
+    "express-rate-limit": "^6.4.0",
+    "password-validator": "^5.3.0",
+    "email-validator": "^2.0.4",
+    "Sharp" : "^0.33.3",
+  },
+  "type": "module"
+}
